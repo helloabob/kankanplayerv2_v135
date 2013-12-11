@@ -1,0 +1,5 @@
+﻿package com.bo.display {	import com.debugTip.DebugTip;		import flash.display.Loader;	import flash.display.Sprite;	import flash.events.Event;	import flash.events.SecurityErrorEvent;	import flash.net.URLRequest;
+	public class PreImage extends Sprite{		private var ld:Loader=new Loader();		public function PreImage(url:String){			DebugTip.instance.log(url+"---------- load preimageurl");			ld.contentLoaderInfo.addEventListener(Event.COMPLETE,onCom);			ld.load(new URLRequest(url));			ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR,onIOError);			Global._stage.addEventListener(Event.RESIZE,onStageResize);		}				protected function onIOError(SecurityErrorEvent:Event):void
+		{
+			DebugTip.instance.log("---------- load preimageurl security error---------------");
+		}		private function onStageResize(evt:Event):void{			ld.width=Global.appWidth;			ld.height=Global.appHeight-32;		}		private function onCom(evt:Event):void{			ld.contentLoaderInfo.removeEventListener(Event.COMPLETE,onCom);			ld.width=Global.appWidth;			ld.height=Global.appHeight-32;			addChild(ld);		}	}	}

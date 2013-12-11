@@ -1,0 +1,1 @@
+﻿package  {	import com.bo.events.MyEvent;	import flash.events.EventDispatcher;		public class NotificationCenter extends EventDispatcher{		public function NotificationCenter() {			// constructor code		}		public function postEvent(evt:MyEvent):void{			dispatchEvent(evt);		}	}	}

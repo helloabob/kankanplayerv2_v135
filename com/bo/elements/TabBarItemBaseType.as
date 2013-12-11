@@ -1,0 +1,1 @@
+﻿package com.bo.elements {		public class TabBarItemBaseType {		public static var LargerSymbol:int=1;		public static var SmallerSymbol:int=2;		public function TabBarItemBaseType() {			// constructor code		}	}	}

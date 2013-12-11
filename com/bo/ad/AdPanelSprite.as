@@ -1,0 +1,1 @@
+﻿package com.bo.ad {		public class AdPanelSprite extends AdPanelBase{		public function AdPanelSprite() {			// constructor code					}	}	}
