@@ -85,13 +85,15 @@
 
 		public function show():void
 		{
-			if(numChildren==0){
-				DebugTip.instance.log("pauseStep2");
-				init();
-			}
-			if(!Global.main.contains(this)){
-				DebugTip.instance.log("pauseStep3"+this.width+this.height);
-				Global.main.addChildAt(this,Global.main.numChildren-1);
+			if(Global.playerparameter.isRelation =="true"){
+				if(numChildren==0){
+					DebugTip.instance.log("pauseStep2");
+					init();
+				}
+				if(!Global.main.contains(this)){
+					DebugTip.instance.log("pauseStep3"+this.width+this.height);
+					Global.main.addChildAt(this,Global.main.numChildren-1);
+				}
 			}
 		}
 

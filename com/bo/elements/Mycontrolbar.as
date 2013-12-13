@@ -77,7 +77,7 @@
 		{
 			if(canRegister==false)return;
 			canRegister=true;
-			trace("bar_registerEventListener");
+			DebugTip.instance.log("bar_registerEventListener");
 			if (Global.playerparameter.islive == "false")
 			{
 				grey0.addEventListener(MouseEvent.MOUSE_DOWN,onGreyDown);
@@ -446,20 +446,24 @@
 
 		private function onPlay(evt:MouseEvent):void
 		{
-			trace("mycontroller currentTime:"+int(Global.mps.mediaPlayer.currentTime) +"||duration:"+ int(Global.mps.mediaPlayer.duration))
+			DebugTip.instance.log("mycontroller currentTime:"+int(Global.mps.mediaPlayer.currentTime) +"||duration:"+ int(Global.mps.mediaPlayer.duration));
 			if (int(Global.mps.mediaPlayer.currentTime)==int(Global.mps.mediaPlayer.duration)
 				||Global.playerparameter.autoPlay == "false" 
 				&& (!Global.mps.mediaPlayer.playing) 
 				&& (!hasPaused) )
 			{
-				DebugTip.instance.log("mycontroller play init")
+				DebugTip.instance.log("mycontroller play init");
 				hasPaused=true;
 				Global.main.initAndPlayVideo();
 			}
 			else
 			{
-				DebugTip.instance.log("mycontroller play from url")
-				Global.mps.mediaPlayer.play();
+				DebugTip.instance.log("mycontroller play from url");
+				if(Global.videodata.videourl=="rtmp://live.kksmg.com:80/live/mp4:Stream_1"){
+					Global.main.initAndPlayVideo();
+				}else{
+					Global.mps.mediaPlayer.play();
+				}
 			}
 		}
 
@@ -564,7 +568,6 @@
 			//2013419
 			//Global.crtMediaInfo["crtTime"]=Global.mps.mediaPlayer.currentTime;
 			//DebugTip.instance.log(Global.mps.mediaPlayer.currentTime+"|CacheTotalTime"+Global.crtMediaInfo["totalTime"]);
-
 			if (Global.mps && Global.crtMediaInfo["totalTime"]) //if (Global.mps && Global.mps.mediaPlayer.duration)
 			{
 				var tr:Number=(Global.mps.mediaPlayer.currentTime + Global.crtMediaInfo["seekTime"]) / Global.crtMediaInfo["totalTime"]; //(Global.mps.mediaPlayer.currentTime+int(Global.crtMediaInfo["crtTime"]) )/ Global.mps.mediaPlayer.duration;

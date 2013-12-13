@@ -8,6 +8,8 @@
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 
+	import flash.external.ExternalInterface;
+	
 	public class DebugTip
 	{
 		private static var _instance:DebugTip;
@@ -41,6 +43,7 @@
 		{
 			trace(str);
 			txt.appendText(str + "\n");
+//			ExternalInterface.call("console.log", str);
 		}
 
 

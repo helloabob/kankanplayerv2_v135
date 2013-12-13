@@ -122,11 +122,11 @@
 				if (Global.playerparameter.islive != "true")
 					Global.videodata.videourl=getVideoUrl(xml.filename);
 				trace("xiaowu_video_url:" + Global.videodata.videourl);
-				if (xml.omsid == undefined || xml.omsid.toString() == "" || xml.omsid.toString() == "0")
-				{
+				if (xml.omsid == undefined || xml.omsid.toString() == "" || xml.omsid.toString() == "0"){
 				}
-				else
+				else{
 					Global.omsid=xml.omsid.toString();
+				}
 				trace("AdXMLParser_omsid:" + Global.omsid);
 				Global.videodata.host=xml.host;
 				Global.videodata.relation=new Array();

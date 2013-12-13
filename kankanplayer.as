@@ -188,7 +188,7 @@
 
 		private function initBar():void
 		{
-			DebugTip.instance.log("initBarEvent");
+			DebugTip.instance.log("------kankanplayer_initBar---------");
 			//register event
 			Global.mps.visible=true;
 			Global.playtype=0;
@@ -212,18 +212,18 @@
 
 			DebugTip.instance.init(this.stage,false);
 			///模拟播放类型，
-			Global.playerparameter.isAd="true";
+//			Global.playerparameter.isAd="true";
 //			Global.playerparameter.islive="true";
 //			Global.playerparameter.ishls="true";
 			//Global.playerparameter.issizechangable="true";
 			//Global.omsid="336876";
-			Global.xmlid="vxml/2013-07-25/0013274609";
+//			Global.xmlid="vxml/2013-09-30/0013578732";
 //			Global.playerparameter.autoPlay="true";
 			//Global.playerparameter.preimageurl="http://adv.smg.cn/d/file/videoset/2012-11-05/e0ae837da37033adc0e63119664f7c53.jpg";
 			//add init 
 			//line 395,rem
 
-			init();
+//			init();
 		}
 
 		public function showVol():void
@@ -442,6 +442,9 @@
 			{
 				hideLoading();
 			}
+			if(!Global.crtMediaInfo["totalTime"]){
+				this.initAndPlayVideo();
+			}
 		}
 
 		public function loadplayer():void
@@ -488,9 +491,9 @@
 						DebugTip.instance.log("cd 6");
 						loadplayer();
 						if(Global.playerparameter.autoPlay=="false"){
-						DebugTip.instance.log("bar 4");
-						this.dispatchEvent(new Event("showMedia"));
-						initBar();
+							DebugTip.instance.log("bar 4");
+							this.dispatchEvent(new Event("showMedia"));
+							initBar();
 						}
 					}
 					break;
@@ -742,9 +745,14 @@
 			}
 			switch (evt.state)
 			{
+				case MediaPlayerState.PLAYBACK_ERROR:
+				{
+					break;
+				}
 				case MediaPlayerState.PLAYING:
 				{
 					//因为media length并不一定会在第一时间获得所以用记时器10次请求
+					DebugTip.instance.log("--start_timer_set_cache----");
 					cacheTimer=new Timer(100,10);
 					cacheTimer.start();
 					cacheTimer.addEventListener(TimerEvent.TIMER,setCache);
@@ -915,19 +923,23 @@
 				if (Global.playerparameter.isAd == "false")
 				{
 					if(Global.playerparameter.autoPlay=="true"){
-						DebugTip.instance.log("bar 5");
+						DebugTip.instance.log("------kankanplayer_setCache_isAd=false_autoPlay=true--------");
 						initBar();
 					}
 					Global.preAdPlayComplete=true;
 					this.dispatchEvent(new Event("showMedia"));
 				}
 
+				if(tracker){
+					tracker.postEndLoading();
+				}
 				if (Global.preAdPlayComplete)
 				{
 					Global.mps.mediaPlayer.play();
 				}
 				else
 				{
+					DebugTip.instance.log("-------kankanplayer_setCache_try_pause_video--------");
 					Global.mps.mediaPlayer.pause();
 				}
 			}

@@ -143,6 +143,10 @@
 				Global.videodata.videotitle=xml.title;
 				Global.videodata.imageurl=xml.imgurl;
 				var tid:String=Global.xmlid;
+				Global.videodata.keywords=xml.keywords;
+				if(Global.videodata.keywords==""||Global.videodata.keywords==null){
+					Global.videodata.keywords="看看新闻网";
+				}
 				Global.videodata.cmsid=tid.substr(tid.lastIndexOf("/") + 1);
 				for each (var node:XML in xml.videolist.video)
 				{

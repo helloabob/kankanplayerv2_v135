@@ -47,14 +47,6 @@ package com.adChinaModule
 			this.addEventListener(AdChinaEvent.HIDEPAUSEAD,hidePauseAdAction);
 			this.addEventListener(AdChinaEvent.FULLSCREEN,fullScreen);
 			this.addEventListener(AdChinaEvent.NORMALSCREEN,normalScreen);
-//			var tt:Timer=new Timer(500);
-//			tt.addEventListener(TimerEvent.TIMER,ontt);
-//			tt.start();
-		}		
-		
-		private function ontt(evt:TimerEvent):void{
-			trace("ontt");
-			this.dispatchEvent(new AdChinaEvent(AdChinaEvent.NORMALSCREEN));
 		}
 		
 		protected function showEndAdAction(event:Event):void

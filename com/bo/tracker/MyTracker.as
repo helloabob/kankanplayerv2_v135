@@ -104,7 +104,7 @@
 			if (vodMetaInfo.videoDuration == 0 || isNaN(vodMetaInfo.videoDuration))
 			{
 				DebugTip.instance.log("traceOnEndloading");
-				setTimeout(onEndLoading,1000);
+//				setTimeout(onEndLoading,1000);
 			}
 			
 		}
@@ -134,10 +134,6 @@
 //			GSVideoState.STOPPED;
 			
 			DebugTip.instance.log("gvTrack:"+src);
-			if(Global.ignoreBuffer==true&&src==MediaPlayerState.BUFFERING){
-				trace("trackinfo_will_not_send");
-			}
-			
 			switch (src)
 			{
 				case MediaPlayerState.BUFFERING:
@@ -183,6 +179,14 @@
 			
 		}
 		
+		public function postEndLoading():void{
+			vodMetaInfo.videoDuration=Global.mps.mediaPlayer.duration;
+			if(vodMetaInfo.videoDuration==0||isNaN(vodMetaInfo.videoDuration)){
+				setTimeout(postEndLoading,1000);
+			}else{
+				vodPlay.endLoading(true,vodMetaInfo);
+			}
+		}
 
 		private function onEndLoading():void
 		{

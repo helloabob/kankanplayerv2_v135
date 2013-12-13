@@ -32,7 +32,9 @@ package com.adChinaModule.adChinaVisiual.mediator
 			var width:Number=AdChinaVisiual.instance.st.stageWidth;
 			var height:Number=AdChinaVisiual.instance.st.stageHeight;
 			DebugTip.instance.log("---------plugin_prepare_ad------------"+width+","+height);
-			adContent.initAdData({playerId:"4203",keyWords:Global.videodata.videotitle,wh:width+","+height,kw:Global.videodata.videotitle});
+			var keywords:String="视频关键字:"+Global.videodata.keywords;
+			var conentKW:String=Global.videodata.keywords;
+			adContent.initAdData({playerId:"4203",keyWords:keywords,wh:width+","+height,kw:conentKW});
 //			adContent.initAdData({playerId:"4203",wh:width+","+height});
 			adContent.initPlayerData({allowAd:[1,1,1,1,1,1]});
 			adContent.addEventListener("load_complete",adLdComplete);

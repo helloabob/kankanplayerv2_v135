@@ -22,7 +22,7 @@ package com.adChinaModule.adChinaModel.util.loadUtil
 		public function init():void{
 			
 			var loader:Loader=new Loader();
-			loader.load(new URLRequest("http://s.acs86.com/FrameWork/AFP/ASP_v523.swf"),new LoaderContext(true));
+			loader.load(new URLRequest("http://s.acs86.com/FrameWork/AFP/ASP_v523.swf"), new LoaderContext(true));
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE,ldComplete);
 			loader.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR,error);
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,error);
