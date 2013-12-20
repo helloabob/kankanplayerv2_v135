@@ -37,12 +37,13 @@
 
 			//videoInfo设置
 			videoInfo.videoID="unknown"; //视频的ID标识以唯一识别一个视频
-			videoInfo.videoOriginalName="看看新闻直播"; //和ID对应的视频原始名称
-			videoInfo.videoName="看看新闻直播"; //视频别称
-			videoInfo.videoUrl=Global.videodata.videourl; //视频资源的URL
+			videoInfo.videoOriginalName=Global.videodata.colname; //和ID对应的视频原始名称
+			videoInfo.videoName=Global.videodata.colname; //视频别称
+//			videoInfo.videoUrl=Global.videodata.videourl; //视频资源的URL
+			videoInfo.videoUrl=Global.videodata.host; //视频页面地址
 			videoInfo.videoTVChannel=Global.videodata.colname; //视频所属的电视频道
-			videoInfo.videoWebChannel="unknown"; //视频所属的网站栏目，支持最多5级，级与级之间用“/”分隔，例如“体育/球类/NBA”
-			videoInfo.videoTag="unknown"; //视频的标签，多个标签之间是并行关系，用“/”分隔
+			videoInfo.videoWebChannel="/直播/"+Global.videodata.colname+"/"; //视频所属的网站栏目，支持最多5级，级与级之间用“/”分隔，例如“体育/球类/NBA”
+			videoInfo.videoTag="普通直播"; //视频的标签，多个标签之间是并行关系，用“/”分隔
 			videoInfo.videoFocus="unknown"; //视频所属的专题名称
 			videoInfo.initialEditor="unknown"; //该视频的粗编
 			videoInfo.fineEditor="unknown"; //该视频的精编
@@ -70,6 +71,7 @@
 		private function onEndLoading(isForce:Boolean=false):void
 		{
 			if(isForce==true){
+				if(canStop==true)return;
 				livePlay.endLoading(true,liveMetaInfo);
 				DebugTip.instance.log("gvLiveTrack:endLiveloading~~~~~~~~~~~~~~~~~");
 				canStop=true;

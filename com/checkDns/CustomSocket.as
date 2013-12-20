@@ -98,14 +98,19 @@ package com.checkDns
 		private function getCdn():void{
 		
 //			trace("==============\n",response,"\n ==============");
-			var cdnPos:int=response.indexOf("\r\nVia");
-			var cdnInfo:String=response.substr(cdnPos);
-			var cdnInfoEndPos:int=cdnInfo.indexOf("\r\n",3);
-			//trace("||",cdnInfoEndPos,"||")
-			cdnInfo=cdnInfo.substring(6,cdnInfoEndPos);
-			DebugTip.instance.log("------Cdn:"+cdnInfo+"---");
-			response="";
-			Global.videodata.cdn=cdnInfo;
+			if(response.indexOf("Powered-By-ChinaCache")>0){
+				Global.videodata.cdn="ChinaCache";
+			}else{
+				Global.videodata.cdn="ChinaNetCenter";
+//				var cdnPos:int=response.indexOf("\r\nVia");
+//				var cdnInfo:String=response.substr(cdnPos);
+//				var cdnInfoEndPos:int=cdnInfo.indexOf("\r\n",3);
+//				cdnInfo=cdnInfo.substring(6,cdnInfoEndPos);
+//				DebugTip.instance.log("------Cdn:"+cdnInfo+"---");
+//				response="";
+//				Global.videodata.cdn=cdnInfo;
+			}
+			DebugTip.instance.log("-------CDN:"+Global.videodata.cdn+"---------");
 			Global.tracker.trySetTrackAgain();
 			this.close();
 		}

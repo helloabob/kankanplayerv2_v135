@@ -77,7 +77,8 @@
 			videoInfo.videoID=Global.omsid; //	视频的ID标识以唯一识别一个视频
 			videoInfo.videoOriginalName=Global.videodata.videotitle; //和ID对应的视频原始名称
 			videoInfo.videoName=Global.videodata.videotitle; //视频别称
-			videoInfo.videoUrl=Global.videodata.videourl; //视频资源的URL
+//			videoInfo.videoUrl=Global.videodata.videourl; //视频资源的URL
+			videoInfo.videoUrl=Global.videodata.host; //视频页面地址
 			videoInfo.videoTVChannel="unknown"; //视频所属的电视频道
 			videoInfo.videoWebChannel=ToolStringUtil.instance.getChannelNameFromString(Global.videodata.colname); //视频所属的网站栏目，支持最多5级，级与级之间用“/”分隔，例如“体育/球类/NBA”
 			videoInfo.videoTag="unknown"; //视频的标签，多个标签之间是并行关系，用“/”分隔
