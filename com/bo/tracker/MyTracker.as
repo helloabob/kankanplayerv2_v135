@@ -180,6 +180,8 @@
 			
 		}
 		
+		public function onEndPlay():void{}
+		
 		public function postEndLoading():void{
 			vodMetaInfo.videoDuration=Global.mps.mediaPlayer.duration;
 			if(vodMetaInfo.videoDuration==0||isNaN(vodMetaInfo.videoDuration)){

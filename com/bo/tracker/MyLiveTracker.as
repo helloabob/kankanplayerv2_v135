@@ -56,7 +56,7 @@
 			liveProvider=new LiveInfoProviderImpl();
 			livePlay=tracker.newLivePlay(videoInfo,liveProvider);
 			livePlay.beginLoading();
-			DebugTip.instance.log("gvLiveTrack:beginLiveloading~~~~~~~~~~~~~~~~~~")
+			DebugTip.instance.log("gvLiveTrack:beginLiveloading~~~~~~~~"+videoInfo.videoName+"~~~~~~~~~~")
 			//liveMetaInfo 设置
 			liveMetaInfo=new LiveMetaInfo();
 			//vodMetaInfo.videoDuration=Global._mps.mediaPlayer.duration;
@@ -67,7 +67,13 @@
 			
 			setTimeout(onEndLoading,1000);
 		}
+		
+		public function onEndPlay():void{
+			livePlay.endPlay();
+		}
 
+		public function postEndLoading():void{}
+		
 		private function onEndLoading(isForce:Boolean=false):void
 		{
 			if(isForce==true){

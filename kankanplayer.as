@@ -38,6 +38,7 @@
 	import flash.net.navigateToURL;
 	import flash.system.Security;
 	import flash.utils.Timer;
+	import flash.utils.setTimeout;
 	
 	import org.osmf.events.MediaPlayerStateChangeEvent;
 	import org.osmf.media.MediaPlayerState;
@@ -224,7 +225,18 @@
 			//line 395,rem
 
 //			init();
+			
+//			flash.utils.setTimeout(testForLive,5000);
+			
 		}
+//		var array:Array=new Array("105849","105838","105854");
+//		var ccc:int=0;
+//		private function testForLive():void{
+//			this.onChangeChannel(array[ccc]);
+//			ccc++;
+//			if(ccc==array.length)ccc=0;
+//			flash.utils.setTimeout(testForLive,5000);
+//		}
 
 		public function showVol():void
 		{
@@ -311,8 +323,9 @@
 			{
 				if (xml.id == channelid)
 				{
-					Global.videodata.colname="看看新闻网直播/"+xml.title;
+					Global.videodata.colname=xml.title;
 					Global.videodata.videourl=xml.titleurl;
+					tracker.onEndPlay();
 					tracker = new MyLiveTracker();
 					myPlayer.changeChannel();
 					return;
@@ -930,10 +943,10 @@
 					this.dispatchEvent(new Event("showMedia"));
 				}
 
-				if(tracker){
+				if(tracker&&Global.playerparameter.islive=="false"){
 					tracker.postEndLoading();
 				}
-				if (Global.preAdPlayComplete)
+				if (Global.preAdPlayComplete||Global.playerparameter.isAd=="false")
 				{
 					Global.mps.mediaPlayer.play();
 				}

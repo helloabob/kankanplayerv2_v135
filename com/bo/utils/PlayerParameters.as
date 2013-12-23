@@ -10,7 +10,7 @@
 		//public var playerLogoURL:String="http://www.kankanews.com/skin/kkv3/images/sy_0906_150x53.png";
 		//public var playerLogoURL:String="http://skin.kankanews.com/kkv3/images/kkbo_logo.png";   //LOGO 图片地址 
 		public var preimageurl:String="";  //首帧图片地址
-		public var isAd:String="true";    //是否播放广告
+		public var isAd:String="false";    //是否播放广告
 		public var isGoogleAd:String="false";	//是否播放google广告
 		public var isRelation:String="true";   //是否加载相关视频
 		//public var ifJumpToNextVideo:String="false";   //是否跳转下一个视频
