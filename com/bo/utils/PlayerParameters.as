@@ -33,6 +33,7 @@
 		public var ishls:String="false";
 		public var issizechangable:String="false";		
 		public var preadloaderurl:String="http://www.kankanews.com/flash/Preload/PreAdLoaderAD.swf";	
+		public var liveChannelID:String="";
 		//public var preadloaderurl:String="http://www.kankanews.com/flash/PreAdLoaderTest.swf";
 		//public var preadloaderurl:String="PreAdLoaderAD.swf";
 		//public var preadloaderurl:String="http://test.smgbb.cn/~wangbo/pread/PreAdLoader.swf";

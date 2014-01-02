@@ -1008,6 +1008,8 @@
 				Global.playerparameter.issizechangable=value.issizechangable;
 			if (value.preadloaderurl)
 				Global.playerparameter.preadloaderurl=value.preadloaderurl;
+			if (value.liveChannelID)
+				Global.playerparameter.liveChannelID=value.liveChannelID;
 			//Global.xmlid=value.xmlid;
 			init();
 
