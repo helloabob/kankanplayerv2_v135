@@ -191,7 +191,8 @@
 		{
 			DebugTip.instance.log("------kankanplayer_initBar---------");
 			//register event
-			Global.mps.visible=true;
+			if(Global.mps)
+				Global.mps.visible=true;
 			Global.playtype=0;
 			bar.registerEventListener();
 			//
@@ -362,19 +363,11 @@
 
 				if (Global.playerparameter.ishls == "true")
 				{
-					DebugTip.instance.log("come here 1")
-					var listloader:URLLoader=new URLLoader();
-					listloader.addEventListener(Event.COMPLETE,onlistcomp);
-					listloader.addEventListener(SecurityErrorEvent.SECURITY_ERROR,listSError);
-					listloader.addEventListener(IOErrorEvent.IO_ERROR,listIoError);
-					listloader.load(new URLRequest("http://interface.kankanews.com/kkapi/v/get_lives.php?api_key=live&access_token=5d8c8b071c08fce87a32ccac75f87d05&t=" + int(Math.random() * 100000000)));
-				
-					function listSError(evt:SecurityErrorEvent):void{
-						DebugTip.instance.log("-----list s error-----");
-					}
-					
-					function listIoError(evt:IOErrorEvent):void{
-						DebugTip.instance.log("-----list io error-----");
+					DebugTip.instance.log("come here 1");
+					if(Global.playerparameter.isAd=="true"){
+						loadad();
+					}else{
+						loadLiveXML();
 					}
 				}
 				else
@@ -404,6 +397,22 @@
 				}
 			}
 		}
+		
+		private function loadLiveXML():void{
+			var listloader:URLLoader=new URLLoader();
+			listloader.addEventListener(Event.COMPLETE,onlistcomp);
+			listloader.addEventListener(SecurityErrorEvent.SECURITY_ERROR,listSError);
+			listloader.addEventListener(IOErrorEvent.IO_ERROR,listIoError);
+			listloader.load(new URLRequest("http://interface.kankanews.com/kkapi/v/get_lives.php?api_key=live&access_token=5d8c8b071c08fce87a32ccac75f87d05&t=" + int(Math.random() * 100000000)));
+			
+			function listSError(evt:SecurityErrorEvent):void{
+				DebugTip.instance.log("-----list s error-----");
+			}
+			
+			function listIoError(evt:IOErrorEvent):void{
+				DebugTip.instance.log("-----list io error-----");
+			}
+		}
 
 		private function loadad():void
 		{
@@ -421,18 +430,28 @@
 			//var al:AdXMLLoader=new AdXMLLoader();
 			//al.loadxml();
 		}
-		
+		static var fg:Boolean=true;
 		protected function adStopHandle(event:Event):void
 		{
 			DebugTip.instance.log("-------------adStopHandle()------------");
-			if(Global.mps.mediaPlayer.currentTime<Global.mps.mediaPlayer.duration)
-				Global.mps.mediaPlayer.play();
+			if(Global.playerparameter.islive=="true"&&Global.playerparameter.ishls=="true"&&Global.playerparameter.isAd=="true"){
+				if(fg){
+					fg=false;
+					loadLiveXML();
+				}
+			}else{
+				if(Global.mps.mediaPlayer.currentTime<Global.mps.mediaPlayer.duration)
+					Global.mps.mediaPlayer.play();
+			}
 		}
 		
 		protected function adStartHandle(event:Event):void
 		{
 			DebugTip.instance.log("-------------adStartHandle()------------");
 			this.dispatchEvent(new Event("showMedia"));
+			if(Global.playerparameter.islive=="true"&&Global.playerparameter.ishls=="true"&&Global.playerparameter.isAd=="true"){
+				return;
+			}
 			if(Global.mps.mediaPlayer.duration)
 				Global.mps.mediaPlayer.pause();
 		}
@@ -442,6 +461,13 @@
 			DebugTip.instance.log("-------------onAdChinacc()------------");
 			this.dispatchEvent(new Event("showMedia"));
 			//this.loadplayer();
+			if(Global.playerparameter.islive=="true"&&Global.playerparameter.ishls=="true"&&Global.playerparameter.isAd=="true"){
+				if(fg){
+					fg=false;
+					loadLiveXML();
+					return;
+				}
+			}
 			Global.mps.mediaPlayer.play();
 			Global.preAdPlayComplete=true;
 			

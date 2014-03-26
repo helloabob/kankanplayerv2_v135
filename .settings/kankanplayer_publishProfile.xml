@@ -22,10 +22,10 @@
     <qtDefaultName>1</qtDefaultName>
     <rnwkDefaultName>1</rnwkDefaultName>
     <swcDefaultName>1</swcDefaultName>
-    <flashFileName>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/bin-debug/kankanplayer.swf</flashFileName>
+    <flashFileName>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/bin-debug/kankanplayer.swf</flashFileName>
     <projectorWinFileName>kankanplayer.exe</projectorWinFileName>
     <projectorMacFileName>kankanplayer.app</projectorMacFileName>
-    <htmlFileName>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/bin-debug/kankanplayer.html</htmlFileName>
+    <htmlFileName>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/bin-debug/kankanplayer.html</htmlFileName>
     <gifFileName>kankanplayer.gif</gifFileName>
     <jpegFileName>kankanplayer.jpg</jpegFileName>
     <pngFileName>kankanplayer.png</pngFileName>
@@ -116,27 +116,27 @@
         <rsl-url>textLayout_2.0.0.232.swz</rsl-url>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/Libs/weibo-flash-sdk-oauth2.swc</swc-path>
+        <swc-path>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/Libs/weibo-flash-sdk-oauth2.swc</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/Libs/ima_lib_as3.swc</swc-path>
+        <swc-path>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/Libs/ima_lib_as3.swc</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/Libs/OSMF_hls.swc</swc-path>
+        <swc-path>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/Libs/OSMF_hls.swc</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/Libs/HLScore.swc</swc-path>
+        <swc-path>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/Libs/HLScore.swc</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/Libs/as3CoreLib.swc</swc-path>
+        <swc-path>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/Libs/as3CoreLib.swc</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/mac0001/Downloads/kankanplayer-1/kankanplayerv2_v135/Libs/GVTracker.swc</swc-path>
+        <swc-path>/Users/wangbo/Work/flash_projs/kankanplayerv2_v135/Libs/GVTracker.swc</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
     </LibraryPath>
