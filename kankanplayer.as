@@ -365,8 +365,10 @@
 				{
 					DebugTip.instance.log("come here 1");
 					if(Global.playerparameter.isAd=="true"){
+						showLoading();
 						loadad();
 					}else{
+						showLoading();
 						loadLiveXML();
 					}
 				}
@@ -438,6 +440,7 @@
 				if(fg){
 					fg=false;
 					loadLiveXML();
+					showLoading();
 				}
 			}else{
 				if(Global.mps.mediaPlayer.currentTime<Global.mps.mediaPlayer.duration)
@@ -465,6 +468,7 @@
 				if(fg){
 					fg=false;
 					loadLiveXML();
+					showLoading();
 					return;
 				}
 			}
