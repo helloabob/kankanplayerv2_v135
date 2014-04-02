@@ -253,7 +253,7 @@
 
 		private function init():void
 		{
-
+			DebugTip.instance.log("player_init");
 			//add preload
 			this.addChild(preload);
 
@@ -356,7 +356,7 @@
 			4 myplayer.as修改中的url修改line 97，
 			5 debugtip版本号version,有三个，debugtip.as,preadloader.as,kankanplayer.as
 			*/
-
+			DebugTip.instance.log("-----configureplayerinfo------");
 			//播放类型分派
 			if (Global.playerparameter.islive == "true")
 			{
@@ -365,6 +365,7 @@
 				{
 					DebugTip.instance.log("come here 1");
 					if(Global.playerparameter.isAd=="true"){
+						DebugTip.instance.log("-----configureplayerinfo-ishls-isAd-isLive------");
 						showLoading();
 						loadad();
 					}else{
@@ -999,6 +1000,7 @@
 		//***********************************VMS call interface*********************************//
 		public function set configurationParameters(value:Object):void
 		{
+			DebugTip.instance.log("------configurationParameters------");
 			Global.playerparameter.width=value.width;
 			Global.playerparameter.height=value.height;
 			Global.playerparameter.autoPlay=value.autoPlay;
