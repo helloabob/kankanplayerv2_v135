@@ -39,13 +39,15 @@ package com.adChinaModule.adChinaContorl
 		
 		public function showEndAd():void{
 			trace("adChinaMoudle showEndAd");
-			if(AdChinaModel.instance.adDataProxy.data.isPreAdPlayed)
-			AdChinaModel.instance.adDataProxy.data.adContent.playAction("stop");
+			if(AdChinaModel.instance.adDataProxy.data.isPreAdPlayed){
+				DebugTip.instance.log("show_end_ad");
+				AdChinaModel.instance.adDataProxy.data.adContent.playAction("stop");
+			}
 		}
 		
 		public function showPauseAd():void{
-			if(AdChinaModel.instance.adDataProxy.data.isPreAdPlayed)
 			trace("adChinaMoudle showPauseAd");
+			if(AdChinaModel.instance.adDataProxy.data.isPreAdPlayed)
 			AdChinaModel.instance.adDataProxy.data.adContent.playAction("pauseBtn");
 		}
 		

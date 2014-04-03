@@ -214,18 +214,18 @@
 
 			DebugTip.instance.init(this.stage,false);
 			///模拟播放类型，
-//			Global.playerparameter.isAd="true";
+			Global.playerparameter.isAd="true";
 //			Global.playerparameter.islive="true";
 //			Global.playerparameter.ishls="true";
 			//Global.playerparameter.issizechangable="true";
 			//Global.omsid="336876";
-//			Global.xmlid="vxml/2013-09-30/0013578732";
+			Global.xmlid="vxml/2014-04-03/0014518007";
 //			Global.playerparameter.autoPlay="true";
 			//Global.playerparameter.preimageurl="http://adv.smg.cn/d/file/videoset/2012-11-05/e0ae837da37033adc0e63119664f7c53.jpg";
 			//add init 
 			//line 395,rem
 
-//			init();
+			init();
 			
 //			flash.utils.setTimeout(testForLive,5000);
 			
@@ -787,6 +787,7 @@
 				}
 				Global.tracker=tracker;
 			}
+			DebugTip.instance.log("--abcdef-----"+evt.state+"--------");
 			switch (evt.state)
 			{
 				case MediaPlayerState.PLAYBACK_ERROR:
@@ -862,9 +863,11 @@
 					if (Global.playerparameter.islive == "false")
 					{
 						var holeName:String=ToolStringUtil.instance.getHoleNameWithHttpString(Global.videodata.videourl);
-						if (Global.playerparameter.isAd == "true" && Global.adParameter.hasEndAd)
+//						if (Global.playerparameter.isAd == "true" && Global.adParameter.hasEndAd)
+						if (Global.playerparameter.isAd == "true")
 						{
-							playEndAd();
+//							playEndAd();
+							AdChinaMoudle.instance.dispatchEvent(new Event(AdChinaEvent.SHOWENDAD));
 						}
 						else
 						{
@@ -874,7 +877,7 @@
 					DebugTip.instance.log("hideload-----2")
 					hideLoading();
 
-					AdChinaMoudle.instance.dispatchEvent(new Event(AdChinaEvent.SHOWENDAD));
+					
 					
 					break;
 				}
