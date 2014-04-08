@@ -63,6 +63,7 @@
 		private var pauseads:PauseAdBase;
 		private var volSprite:Sprite   =new Sprite();
 		private var sfx:RonSoundFX;
+		private var playingEndAd:Boolean = false;
 
 		private function onPreAdLoadError(evt:IOErrorEvent):void
 		{
@@ -214,18 +215,18 @@
 
 			DebugTip.instance.init(this.stage,false);
 			///模拟播放类型，
-			Global.playerparameter.isAd="true";
+//			Global.playerparameter.isAd="true";
 //			Global.playerparameter.islive="true";
 //			Global.playerparameter.ishls="true";
 			//Global.playerparameter.issizechangable="true";
 			//Global.omsid="336876";
-			Global.xmlid="vxml/2014-04-03/0014518007";
+//			Global.xmlid="vxml/2014-04-03/0014518007";
 //			Global.playerparameter.autoPlay="true";
 			//Global.playerparameter.preimageurl="http://adv.smg.cn/d/file/videoset/2012-11-05/e0ae837da37033adc0e63119664f7c53.jpg";
 			//add init 
 			//line 395,rem
 
-			init();
+//			init();
 			
 //			flash.utils.setTimeout(testForLive,5000);
 			
@@ -444,8 +445,15 @@
 					showLoading();
 				}
 			}else{
-				if(Global.mps.mediaPlayer.currentTime<Global.mps.mediaPlayer.duration)
+				DebugTip.instance.log("---"+Global.mps.mediaPlayer.currentTime+"---"+Global.mps.mediaPlayer.duration+"----");
+				if(int(Global.mps.mediaPlayer.currentTime)<int(Global.mps.mediaPlayer.duration))
 					Global.mps.mediaPlayer.play();
+				else {
+					if(playingEndAd){
+						playingEndAd=false;
+						processendstatus();
+					}
+				}
 			}
 		}
 		
@@ -867,7 +875,10 @@
 						if (Global.playerparameter.isAd == "true")
 						{
 //							playEndAd();
-							AdChinaMoudle.instance.dispatchEvent(new Event(AdChinaEvent.SHOWENDAD));
+							if(!playingEndAd){
+								playingEndAd=true;
+								AdChinaMoudle.instance.dispatchEvent(new Event(AdChinaEvent.SHOWENDAD));
+							}
 						}
 						else
 						{
