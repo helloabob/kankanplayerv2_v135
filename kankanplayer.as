@@ -792,6 +792,7 @@
 				{
 					DebugTip.instance.log("here start mytrack~~")
 					tracker=new MyTracker();
+					tracker.postEndLoading();
 				}
 				Global.tracker=tracker;
 			}
@@ -988,9 +989,9 @@
 					this.dispatchEvent(new Event("showMedia"));
 				}
 
-				if(tracker&&Global.playerparameter.islive=="false"){
-					tracker.postEndLoading();
-				}
+//				if(tracker&&Global.playerparameter.islive=="false"){
+//					tracker.postEndLoading();
+//				}
 				if (Global.preAdPlayComplete||Global.playerparameter.isAd=="false")
 				{
 					Global.mps.mediaPlayer.play();

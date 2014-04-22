@@ -187,6 +187,7 @@
 			if(vodMetaInfo.videoDuration==0||isNaN(vodMetaInfo.videoDuration)){
 				setTimeout(postEndLoading,1000);
 			}else{
+				DebugTip.instance.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~endLoading~~~~~~~~~~~~~~~~~~~~~~~");
 				vodPlay.endLoading(true,vodMetaInfo);
 			}
 		}
