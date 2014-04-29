@@ -723,6 +723,14 @@
 		//播放结束时跳转
 		public function processendstatus():void
 		{
+			var endbehaviorFromJS:String="";
+			try{
+				endbehaviorFromJS=ExternalInterface.call("mediaPlayEnd");
+			}
+			catch (error:Error){}
+			if (endbehaviorFromJS == "stop"){
+				Global.playerparameter.endbehavior="0";
+			}
 			Global.playtype=0;
 			//调试片尾行为
 			//Global.playerparameter.endbehavior="1";

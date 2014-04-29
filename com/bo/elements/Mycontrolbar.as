@@ -595,26 +595,26 @@
 			}
 
 			//最后播完时读连播JS
-			var endbehaviorFromJS:String="";
-			if (Global.mps.mediaPlayer.currentTime == Global.mps.mediaPlayer.duration && Global.mps.mediaPlayer.duration > 0)
-			{
-				
-				
-				try
-				{
-					endbehaviorFromJS=ExternalInterface.call("mediaPlayEnd");
-				}
-				catch (error:Error)
-				{
-				}
-
-				if (endbehaviorFromJS == "stop")
-				{
-					Global.playerparameter.endbehavior="0";
-				}
-				
-				//DebugTip.instance.log("lanbotest:"+endbehaviorFromJS);
-			}
+//			var endbehaviorFromJS:String="";
+//			if (Global.mps.mediaPlayer.currentTime == Global.mps.mediaPlayer.duration && Global.mps.mediaPlayer.duration > 0)
+//			{
+//				
+//				
+//				try
+//				{
+//					endbehaviorFromJS=ExternalInterface.call("mediaPlayEnd");
+//				}
+//				catch (error:Error)
+//				{
+//				}
+//
+//				if (endbehaviorFromJS == "stop")
+//				{
+//					Global.playerparameter.endbehavior="0";
+//				}
+//				
+//				//DebugTip.instance.log("lanbotest:"+endbehaviorFromJS);
+//			}
 
 		}
 
